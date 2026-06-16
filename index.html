@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>怪名扭蛋机</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="kicker">Username gacha</p>
+          <h1>怪名扭蛋机</h1>
+          <p class="intro">给注册页面一个会心一笑的答案。中文、英文、混合都能抽，短名长名都能来。</p>
+        </div>
+
+        <div class="machine" aria-hidden="true">
+          <div class="machine-top">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="machine-window">
+            <b id="machinePreview">42号混凝土拌面</b>
+          </div>
+          <div class="machine-base">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <aside class="control-panel" aria-label="生成设置">
+          <div class="panel-head">
+            <h2>设置</h2>
+            <button class="ghost-button" id="resetButton" type="button">重置</button>
+          </div>
+
+          <div class="control-group">
+            <label>语言</label>
+            <div class="segmented" role="group" aria-label="选择语言">
+              <button class="segment active" type="button" data-option="language" data-value="zh">中文</button>
+              <button class="segment" type="button" data-option="language" data-value="en">English</button>
+              <button class="segment" type="button" data-option="language" data-value="mix">混合</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>长度</label>
+            <div class="segmented" role="group" aria-label="选择长度">
+              <button class="segment" type="button" data-option="length" data-value="short">短</button>
+              <button class="segment active" type="button" data-option="length" data-value="medium">中</button>
+              <button class="segment" type="button" data-option="length" data-value="long">长</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="quantityRange">一次生成 <strong id="quantityLabel">10</strong> 个</label>
+            <input id="quantityRange" type="range" min="4" max="16" value="10">
+          </div>
+
+          <div class="switch-row">
+            <div>
+              <label for="nsfwToggle">NSFW 18+</label>
+              <p>打开后加入更成人、更欠揍的词，但仍优先好笑。</p>
+            </div>
+            <button class="toggle" id="nsfwToggle" type="button" role="switch" aria-checked="false">
+              <span></span>
+            </button>
+          </div>
+
+          <button class="primary-button" id="generateButton" type="button">再抽一锅怪名</button>
+        </aside>
+
+        <section class="results-panel" aria-label="生成结果">
+          <div class="results-head">
+            <div>
+              <p class="kicker">Results</p>
+              <h2>今天的可疑名单</h2>
+            </div>
+            <button class="ghost-button" id="copyAllButton" type="button">复制全部</button>
+          </div>
+
+          <div class="toast" id="toast" role="status" aria-live="polite"></div>
+          <div class="result-list" id="resultList"></div>
+        </section>
+      </section>
+
+      <section class="favorites-panel" aria-label="收藏列表">
+        <div>
+          <p class="kicker">Favorites</p>
+          <h2>暂存的灵光一闪</h2>
+        </div>
+        <div class="favorite-list empty" id="favoriteList">还没收藏。看到顺眼的怪名就点星标。</div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
